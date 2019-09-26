@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Hero form</h1>
+<form th:action="@{'/heroes/edit/'+ ${hero.id}}" th:method="post" th:object="${hero}">
+    <div>
+        Name <input type="text" th:field="*{name}">
+    </div>
+    <div>
+        Description <input type="text" th:field="*{description}">
+    </div>
+    <div>
+        History <input type="text" th:field="*{history}">
+    </div>
+    <div>
+        Thumbnail <input type="text" th:field="*{thumbnail}">
+    </div>
+    <div>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </div>
+</form>
+</body>
+</html>

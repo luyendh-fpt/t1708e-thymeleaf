@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img.hero-thumbnail {
+            width: 70px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Heroes</h1>
+    <ul>
+        <li th:each="hero: ${heroes}">
+            <span th:text="${hero.name}"></span>
+            <img class="hero-thumbnail" th:src="${hero.thumbnail}" th:alt="${hero.name}">
+        </li>
+    </ul>
+</body>
+</html>
