@@ -28,18 +28,17 @@ public class HomeController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String index() {
-
-
-        Role role = new Role();
+        Role role = roleRepository.findById(3).orElse(null);
         role.setName("ADMIN");
 
-        for (Account account :
-                accountRepository.findAll()) {
-            role.addAccount(account);
-        }
+        Account account = new Account();
+        account.setEmail("thangminh_nghihoc_khongxembai_conthacmaclam@gmail.com");
+        account.setPassword(passwordEncoder.encode("lansauemcuthe"));
+        account.setStatus(1);
+
+        role.addAccount(account);
 
         roleRepository.save(role);
-
         return "index";
     }
 

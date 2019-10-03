@@ -22,12 +22,12 @@ public class MyUserDetailsService implements UserDetailsService {
         if (account == null) {
             throw new UsernameNotFoundException("Username not found");
         }
-        System.out.println(account.getRoles().stream().map(x -> x.getName()).toArray());
+        //System.out.println(account.getRoles().stream().map(x -> x.getName()).toArray());
         UserDetails user =
                 User.builder()
                         .username(account.getEmail())
                         .password(account.getPassword())
-                        .roles(account.getRoles().stream().map(x -> x.getName()).toArray().toString())
+                        .roles("USER")
                         .build();
         return user;
     }
